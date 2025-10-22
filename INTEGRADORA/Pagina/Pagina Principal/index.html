@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeTrack Kids - Tranquilidad para Padres Modernos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .product-showcase {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .product-glow {
+            position: absolute;
+            inset: -20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .nav-fixed {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .pricing-featured {
+            transform: scale(1.05);
+            border: 2px solid #3b82f6;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-featured {
+                transform: scale(1);
+            }
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="antialiased smooth-scroll">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-fixed border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-xl font-bold text-gray-900">SafeTrack Kids</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#caracteristicas" class="text-gray-700 hover:text-blue-600 font-medium transition">CaracterÃ­sticas</a>
+                    <a href="#como-funciona" class="text-gray-700 hover:text-blue-600 font-medium transition">CÃ³mo Funciona</a>
+                    <a href="#planes" class="text-gray-700 hover:text-blue-600 font-medium transition">Planes</a>
+                    <a href="#contacto" class="bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition transform hover:-translate-y-0.5">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
+                        Tranquilidad constante.<br>
+                        <span class="hero-gradient">ConexiÃ³n segura.</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        La pulsera inteligente diseÃ±ada para mantener a tus hijos seguros con localizaciÃ³n GPS en tiempo real, sin complicaciones ni suscripciones ocultas.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#planes" class="bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-600 transition transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                            Comprar Ahora
+                        </a>
+                        <a href="#como-funciona" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg border-2 border-blue-500 hover:bg-blue-50 transition transform hover:-translate-y-1">
+                            Ver Demo
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900">50k+</div>
+                            <div class="text-sm text-gray-600">Familias Protegidas</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900">4.9â˜…</div>
+                            <div class="text-sm text-gray-600">ValoraciÃ³n</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900">24/7</div>
+                            <div class="text-sm text-gray-600">Monitoreo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="product-showcase">
+                        <div class="product-glow"></div>
+                        <svg class="w-32 h-32 text-white z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="caracteristicas" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">TecnologÃ­a al Servicio de la Seguridad</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Funciones diseÃ±adas pensando en la tranquilidad de los padres y la libertad de los niÃ±os</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">GPS de PrecisiÃ³n</h3>
+                    <p class="text-gray-600">LocalizaciÃ³n en tiempo real con precisiÃ³n de hasta 5 metros. Funciona en interiores y exteriores.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Zonas Seguras</h3>
+                    <p class="text-gray-600">Define Ã¡reas permitidas y recibe alertas instantÃ¡neas si tu hijo sale de ellas.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">App Intuitiva</h3>
+                    <p class="text-gray-600">Interfaz simple y clara. Compatible con iOS y Android. Sin configuraciones complicadas.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">BotÃ³n SOS</h3>
+                    <p class="text-gray-600">Alerta de emergencia instantÃ¡nea con ubicaciÃ³n exacta enviada a todos los contactos.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">BaterÃ­a Duradera</h3>
+                    <p class="text-gray-600">Hasta 5 dÃ­as de autonomÃ­a. Carga rÃ¡pida y alertas de baterÃ­a baja.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Resistente al Agua</h3>
+                    <p class="text-gray-600">CertificaciÃ³n IP67. Resistente a salpicaduras, lluvia y lavado de manos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="como-funciona" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Tan Simple Como 1, 2, 3</h2>
+                <p class="text-xl text-gray-600">Comienza a proteger a tu familia en minutos</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">1</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Descarga la App</h3>
+                    <p class="text-gray-600 leading-relaxed">Disponible gratis en App Store y Google Play. Crea tu cuenta familiar en segundos.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">2</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Vincula la Pulsera</h3>
+                    <p class="text-gray-600 leading-relaxed">Escanea el cÃ³digo QR de la pulsera y configura el perfil de tu hijo.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">3</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Monitorea con Tranquilidad</h3>
+                    <p class="text-gray-600 leading-relaxed">Visualiza la ubicaciÃ³n en tiempo real y recibe notificaciones inteligentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planes" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Planes Transparentes, Sin Sorpresas</h2>
+                <p class="text-xl text-gray-600">Elige el plan que mejor se adapte a tu familia</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">BÃ¡sico</h3>
+                    <div class="mb-6">
+                        <span class="text-gray-600 text-lg">$</span>
+                        <span class="text-5xl font-bold text-gray-900">99</span>
+                        <span class="text-gray-600">/mes</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">1 Pulsera incluida</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">GPS en tiempo real</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Historial de 7 dÃ­as</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">2 Zonas seguras</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white text-blue-600 border-2 border-blue-600 py-3 rounded-xl font-bold hover:bg-blue-50 transition">
+                        Seleccionar Plan
+                    </button>
+                </div>
+
+                <!-- Popular Plan -->
+                <div class="bg-white rounded-2xl shadow-2xl p-8 pricing-featured relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                            MÃ¡s Popular
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-4">Familiar</h3>
+                    <div class="mb-6">
+                        <span class="text-gray-600 text-lg">$</span>
+                        <span class="text-5xl font-bold text-gray-900">149</span>
+                        <span class="text-gray-600">/mes</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Hasta 3 pulseras</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">GPS en tiempo real</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Historial de 30 dÃ­as</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Zonas seguras ilimitadas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Soporte prioritario</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-xl font-bold hover:shadow-xl transition transform hover:-translate-y-1">
+                        Seleccionar Plan
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Premium</h3>
+                    <div class="mb-6">
+                        <span class="text-gray-600 text-lg">$</span>
+                        <span class="text-5xl font-bold text-gray-900">199</span>
+                        <span class="text-gray-600">/mes</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Pulseras ilimitadas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">GPS en tiempo real</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Historial ilimitado</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Todas las funciones</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-700">Gestor dedicado</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white text-blue-600 border-2 border-blue-600 py-3 rounded-xl font-bold hover:bg-blue-50 transition">
+                        Seleccionar Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Â¿Listo para la Tranquilidad Total?</h2>
+            <p class="text-xl text-blue-100 mb-8">Ãšnete a miles de familias que ya confÃ­an en SafeTrack Kids</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#planes" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition transform hover:-translate-y-1 shadow-lg">
+                    Comenzar Ahora
+                </a>
+                <a href="#contacto" class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition transform hover:-translate-y-1">
+                    Hablar con Ventas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-xl font-bold text-white">SafeTrack Kids</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">TecnologÃ­a de localizaciÃ³n GPS diseÃ±ada para la seguridad infantil y la tranquilidad familiar.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Producto</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#caracteristicas" class="hover:text-blue-400 transition">CaracterÃ­sticas</a></li>
+                        <li><a href="#planes" class="hover:text-blue-400 transition">Planes</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">App MÃ³vil</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Seguridad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Soporte</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-400 transition">Centro de Ayuda</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">GuÃ­a de Inicio</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Preguntas Frecuentes</a></li>
+                        <li><a href="#contacto" class="hover:text-blue-400 transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-400 transition">Privacidad</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">TÃ©rminos de Uso</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">GarantÃ­a</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500">&copy; 2025 SafeTrack Kids. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="lang-fab" class="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-14 h-14 shadow-xl hover:shadow-2xl transition transform hover:-translate-y-0.5 focus:outline-none">
+      <span class="sr-only">Cambiar idioma</span>
+      <svg class="w-7 h-7 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12a9 9 0 1018 0A9 9 0 003 12zm7-1h4m-2-2v4" />
+      </svg>
+    </button>
+</body>
+</html>

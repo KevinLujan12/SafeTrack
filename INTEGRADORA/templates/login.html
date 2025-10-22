@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión - SafeTrack Kids</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="antialiased auth-bg min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-md">
+    <!-- Brand -->
+    <div class="flex flex-col items-center mb-8">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-lg">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h1 class="mt-4 text-2xl font-extrabold text-gray-900">SafeTrack Kids</h1>
+      <p class="text-gray-600">Bienvenido de nuevo</p>
+    </div>
+
+    <!-- Card -->
+    <div class="bg-white/90 backdrop-blur rounded-2xl p-6 sm:p-8 card-glow border border-gray-100">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">Iniciar sesión</h2>
+        <p class="text-sm text-gray-600">Accede a tu cuenta para continuar</p>
+      </div>
+
+      <form action="#" method="post" class="space-y-5" onsubmit="return false;">
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+          <input id="email" type="email" placeholder="tucorreo@ejemplo.com"
+                 class="w-full rounded-xl border-gray-300 focus:border-blue-500 focus:ring-blue-500 px-4 py-3 shadow-sm" />
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+            <a href="#" class="text-sm font-medium text-blue-600 hover:text-blue-700">¿Olvidaste tu contraseña?</a>
+          </div>
+          <input id="password" type="password" placeholder="••••••••"
+                 class="w-full rounded-xl border-gray-300 focus:border-blue-500 focus:ring-blue-500 px-4 py-3 shadow-sm" />
+        </div>
+
+        <button type="submit"
+                class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">
+          Continuar
+        </button>
+
+        <div class="flex items-center gap-3">
+          <div class="h-px bg-gray-200 w-full"></div>
+          <span class="text-xs text-gray-500">o</span>
+          <div class="h-px bg-gray-200 w-full"></div>
+        </div>
+
+        <button type="button"
+                class="w-full bg-white text-blue-600 border-2 border-blue-600 py-3 rounded-xl font-semibold hover:bg-blue-50 transition">
+          Iniciar con Google
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-gray-600">
+        ¿No tienes cuenta?
+        <a href="#" class="font-semibold text-blue-600 hover:text-blue-700">Crear una cuenta</a>
+      </p>
+    </div>
+
+    <div class="text-center mt-6">
+      <a href="/" class="text-sm text-gray-600 hover:text-gray-800">Volver a la página principal</a>
+    </div>
+  </div>
+</body>
+</html>
