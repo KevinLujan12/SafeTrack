@@ -56,10 +56,7 @@ export default function LoginScreen() {
         </View>
 
         {userType ? (
-          <Link
-            href={userType === 'parent' ? '/(home)/parent-dashboard' : '/(home)/school-dashboard'}
-            asChild
-          >
+          <Link href='/(home)' asChild>
             <TouchableOpacity style={styles.buttonWrapper}>
               <LinearGradient
                 colors={['#3b82f6', '#8b5cf6']}
