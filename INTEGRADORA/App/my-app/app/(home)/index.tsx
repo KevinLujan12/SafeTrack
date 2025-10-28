@@ -2,66 +2,105 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function HomeScreen() {
+  // Ejemplo de datos de usuario y estadísticas
+  const user = {
+    name: 'Kevin Luján',
+    role: 'Padre',
+    child: 'Sofía',
+  };
+
+  const stats = {
+    pasosHoy: 7345,
+    distanciaKm: 5.2,
+    alertas: 1,
+    zonasSeguras: 3,
+    ultimaUbicacion: 'Parque Central',
+    ultimaActividad: 'Entrada a la escuela',
+    horaUltimaActividad: '07:42 AM',
+  };
+
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.welcomeTitle}>Welcome to SafeTrack Kids, Kevin!</Text>
-      <Text style={styles.welcomeSubtitle}>Complete the checklist to get your store up and running.</Text>
+      {/* Encabezado de usuario */}
+      <View style={styles.header}>
+        <View style={styles.avatar}>
+          <Text style={styles.avatarText}>{user.name.charAt(0)}</Text>
+        </View>
+        <View style={styles.headerText}>
+          <Text style={styles.welcomeTitle}>Hola, {user.name}</Text>
+          <Text style={styles.welcomeSubtitle}>{user.role} de {user.child}</Text>
+        </View>
+      </View>
 
-      <View style={styles.trialCard}>
-        <Text style={styles.trialText}>Your SafeTrack Kids trial is expiring in 30 days.</Text>
-        <Text style={styles.trialSubtext}>Choose a plan to continue using SafeTrack Kids to manage your store.</Text>
-        <View style={styles.trialButtons}>
+      {/* Tarjeta de estado y acción rápida */}
+      <View style={styles.statusCard}>
+        <Text style={styles.statusTitle}>Estado de hoy</Text>
+        <Text style={styles.statusSubtitle}>Última actividad: {stats.ultimaActividad} • {stats.horaUltimaActividad}</Text>
+        <View style={styles.quickButtons}>
           <TouchableOpacity>
-            <LinearGradient colors={['#3b82f6', '#8b5cf6']} style={styles.upgradeButton}>
-              <Text style={styles.upgradeButtonText}>Upgrade now</Text>
+            <LinearGradient colors={['#3b82f6', '#8b5cf6']} style={styles.primaryButton}>
+              <Text style={styles.primaryButtonText}>Ver mapa</Text>
             </LinearGradient>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={styles.demoText}>Request a demo</Text>
+            <Text style={styles.secondaryLink}>Historial</Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      <View style={styles.gettingStartedCard}>
-        <View style={styles.gettingStartedHeader}>
-          <Text style={styles.gettingStartedTitle}>Getting started</Text>
-          <Text style={styles.steps}>1/4 steps completed</Text>
-        </View>
-        <View style={styles.progressBar}>
-          <LinearGradient colors={['#3b82f6', '#8b5cf6']} style={styles.progress} />
-        </View>
-        <TouchableOpacity>
-          <LinearGradient colors={['#3b82f6', '#8b5cf6']} style={styles.onboardingButton}>
-            <Text style={styles.onboardingButtonText}>Schedule my onboarding call</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
-
+      {/* Estadísticas rápidas */}
       <View style={styles.statsGrid}>
         <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Inventory Value</Text>
-          <Text style={styles.statValue}>-</Text>
+          <Text style={styles.statLabel}>Pasos (hoy)</Text>
+          <Text style={styles.statValue}>{stats.pasosHoy.toLocaleString()}</Text>
         </View>
         <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Month to Date Gross Profit</Text>
-          <Text style={styles.statValue}>-</Text>
+          <Text style={styles.statLabel}>Distancia (km)</Text>
+          <Text style={styles.statValue}>{stats.distanciaKm.toFixed(1)}</Text>
         </View>
         <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Projected Gross Profit</Text>
-          <Text style={styles.statValue}>-</Text>
+          <Text style={styles.statLabel}>Alertas</Text>
+          <Text style={[styles.statValue, stats.alertas > 0 && styles.alertValue]}>{stats.alertas}</Text>
         </View>
         <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Accounts Receivable</Text>
-          <Text style={styles.statValue}>-</Text>
-        </View>
-        <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Accounts Payable</Text>
-          <Text style={styles.statValue}>-</Text>
+          <Text style={styles.statLabel}>Zonas seguras</Text>
+          <Text style={styles.statValue}>{stats.zonasSeguras}</Text>
         </View>
       </View>
 
-      <View style={styles.tasksSection}>
-        <Text style={styles.tasksTitle}>Your tasks</Text>
+      {/* Sección de actividad reciente */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Actividad reciente</Text>
+        <View style={styles.activityItem}>
+          <View style={styles.activityDot} />
+          <View style={styles.activityTextWrap}>
+            <Text style={styles.activityText}>Salida de casa</Text>
+            <Text style={styles.activitySubtext}>07:15 AM</Text>
+          </View>
+        </View>
+        <View style={styles.activityItem}>
+          <View style={[styles.activityDot, { backgroundColor: '#10b981' }]} />
+          <View style={styles.activityTextWrap}>
+            <Text style={styles.activityText}>Entrada a la escuela</Text>
+            <Text style={styles.activitySubtext}>07:42 AM</Text>
+          </View>
+        </View>
+        <View style={styles.activityItem}>
+          <View style={[styles.activityDot, { backgroundColor: '#f59e0b' }]} />
+          <View style={styles.activityTextWrap}>
+            <Text style={styles.activityText}>Salida de la escuela</Text>
+            <Text style={styles.activitySubtext}>01:30 PM</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Sección de ubicación */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Ubicación</Text>
+        <View style={styles.locationCard}>
+          <Text style={styles.locationPlace}>{stats.ultimaUbicacion}</Text>
+          <Text style={styles.locationHint}>Actualizado hace 5 min</Text>
+        </View>
       </View>
     </ScrollView>
   );
@@ -73,95 +112,73 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
     padding: 20,
   },
-  welcomeTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  welcomeSubtitle: {
-    fontSize: 16,
-    color: '#888',
-    marginBottom: 20,
-  },
-  trialCard: {
-    backgroundColor: '#eef2ff',
-    borderRadius: 8,
-    padding: 20,
-    marginBottom: 20,
-  },
-  trialText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  trialSubtext: {
-    fontSize: 14,
-    color: '#555',
-    marginTop: 5,
-    marginBottom: 15,
-  },
-  trialButtons: {
+  header: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 20,
   },
-  upgradeButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    marginRight: 15,
+  avatar: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: '#e0e7ff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
   },
-  upgradeButtonText: {
-    color: '#fff',
+  avatarText: {
+    fontSize: 22,
     fontWeight: 'bold',
-  },
-  demoText: {
     color: '#3b82f6',
-    fontWeight: 'bold',
   },
-  gettingStartedCard: {
+  headerText: {
+    flex: 1,
+  },
+  welcomeTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#111827',
+  },
+  welcomeSubtitle: {
+    fontSize: 14,
+    color: '#6b7280',
+  },
+  statusCard: {
     backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 20,
+    borderRadius: 12,
+    padding: 16,
     marginBottom: 20,
     borderWidth: 1,
     borderColor: '#eee',
   },
-  gettingStartedHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 15,
-  },
-  gettingStartedTitle: {
+  statusTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#111827',
+    marginBottom: 6,
   },
-  steps: {
+  statusSubtitle: {
     fontSize: 14,
-    color: '#888',
+    color: '#6b7280',
+    marginBottom: 12,
   },
-  progressBar: {
-    height: 10,
-    backgroundColor: '#eee',
-    borderRadius: 5,
-    marginBottom: 15,
-    overflow: 'hidden',
-  },
-  progress: {
-    width: '25%',
-    height: '100%',
-    borderRadius: 5,
-  },
-  onboardingButton: {
-    paddingVertical: 12,
-    borderRadius: 8,
+  quickButtons: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
-  onboardingButtonText: {
+  primaryButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginRight: 12,
+  },
+  primaryButtonText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 16,
+  },
+  secondaryLink: {
+    color: '#3b82f6',
+    fontWeight: '600',
   },
   statsGrid: {
     flexDirection: 'row',
@@ -181,20 +198,64 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 14,
-    color: '#888',
-    marginBottom: 5,
+    color: '#6b7280',
+    marginBottom: 6,
   },
   statValue: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#111827',
   },
-  tasksSection: {
-    marginBottom: 40,
+  alertValue: {
+    color: '#ef4444',
   },
-  tasksTitle: {
-    fontSize: 20,
+  section: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#111827',
+    marginBottom: 10,
+  },
+  activityItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+  activityDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#3b82f6',
+    marginRight: 10,
+  },
+  activityTextWrap: {
+    flex: 1,
+  },
+  activityText: {
+    fontSize: 16,
+    color: '#111827',
+  },
+  activitySubtext: {
+    fontSize: 12,
+    color: '#6b7280',
+  },
+  locationCard: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+  locationPlace: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#111827',
+  },
+  locationHint: {
+    fontSize: 12,
+    color: '#6b7280',
+    marginTop: 4,
   },
 });
