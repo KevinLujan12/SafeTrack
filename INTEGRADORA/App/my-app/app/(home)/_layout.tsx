@@ -1,5 +1,6 @@
 import { Drawer } from 'expo-router/drawer';
 import { CustomDrawerContent } from '@/components/CustomDrawerContent';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeLayout() {
   return (
@@ -16,13 +17,8 @@ export default function HomeLayout() {
       <Drawer.Screen name="parent-dashboard" options={{ title: 'Dashboard Padre' }} />
       <Drawer.Screen name="school-dashboard" options={{ title: 'Dashboard Escuela' }} />
       <Drawer.Screen name="clients" options={{ title: 'Clients' }} />
-      <Drawer.Screen name="engage" options={{ title: 'Engage' }} />
-      <Drawer.Screen name="payments" options={{ title: 'Payments' }} />
-      <Drawer.Screen name="transactions" options={{ title: 'Transactions' }} />
-      <Drawer.Screen name="inventory" options={{ title: 'Inventory' }} />
-      <Drawer.Screen name="lead-genius" options={{ title: 'Lead Genius' }} />
-      <Drawer.Screen name="sourcing" options={{ title: 'Sourcing' }} />
       <Drawer.Screen name="connect" options={{ title: 'Connect' }} />
+      <Drawer.Screen name="alerts" options={{ title: 'Alertas'}}/>
       <Drawer.Screen name="analytics" options={{ title: 'Analytics' }} />
     </Drawer>
   );

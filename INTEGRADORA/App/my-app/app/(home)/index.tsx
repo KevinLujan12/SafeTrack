@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
   // Ejemplo de datos de usuario y estadísticas
@@ -19,17 +21,35 @@ export default function HomeScreen() {
     horaUltimaActividad: '07:42 AM',
   };
 
+  const router = useRouter();
+  const unreadAlerts = 2; // This would come from your state/context
+
   return (
     <ScrollView style={styles.container}>
       {/* Encabezado de usuario */}
       <View style={styles.header}>
-        <View style={styles.avatar}>
-          <Text style={styles.avatarText}>{user.name.charAt(0)}</Text>
+        <View style={styles.headerLeft}>
+          <View style={styles.avatar}>
+            <Text style={styles.avatarText}>{user.name.charAt(0)}</Text>
+          </View>
+          <View style={styles.headerText}>
+            <Text style={styles.welcomeTitle}>Hola, {user.name}</Text>
+            <Text style={styles.welcomeSubtitle}>{user.role} de {user.child}</Text>
+          </View>
         </View>
-        <View style={styles.headerText}>
-          <Text style={styles.welcomeTitle}>Hola, {user.name}</Text>
-          <Text style={styles.welcomeSubtitle}>{user.role} de {user.child}</Text>
-        </View>
+        <TouchableOpacity 
+          style={styles.notificationIcon}
+          onPress={() => router.push('/(home)/alerts')}
+        >
+          <Ionicons name="notifications-outline" size={24} color="#3b82f6" />
+          {unreadAlerts > 0 && (
+            <View style={styles.notificationBadge}>
+              <Text style={styles.notificationText}>
+                {unreadAlerts > 9 ? '9+' : unreadAlerts}
+              </Text>
+            </View>
+          )}
+        </TouchableOpacity>
       </View>
 
       {/* Tarjeta de estado y acción rápida */}
@@ -110,12 +130,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fafafa',
-    padding: 20,
+    padding: 15,
   },
   header: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  notificationIcon: {
+    position: 'relative',
+    padding: 8,
+  },
+  notificationBadge: {
+    position: 'absolute',
+    right: 2,
+    top: 2,
+    backgroundColor: '#ef4444',
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  notificationText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
   avatar: {
     width: 56,
