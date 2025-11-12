@@ -15,9 +15,8 @@ export default function HomeLayout() {
     >
       <Drawer.Screen name="index" options={{ title: 'Home' }} />
       <Drawer.Screen name="parent-dashboard" options={{ title: 'Dashboard Padre' }} />
-      <Drawer.Screen name="school-dashboard" options={{ title: 'Dashboard Escuela' }} />
-      <Drawer.Screen name="clients" options={{ title: 'Clients' }} />
-      <Drawer.Screen name="connect" options={{ title: 'Connect' }} />
+      <Drawer.Screen name="ubicacion" options={{ title: 'Ubicacion' }} />
+      <Drawer.Screen name="connect" options={{ title: 'Dispositivos' }} />
       <Drawer.Screen name="alerts" options={{ title: 'Alertas'}}/>
       <Drawer.Screen name="analytics" options={{ title: 'Analytics' }} />
     </Drawer>

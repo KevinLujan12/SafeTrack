@@ -1,39 +1,76 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useState } from 'react';
+import { useRouter } from 'expo-router';
 
 export default function ConnectScreen() {
-  const connectedDevice = {
-    name: 'Pulsera SafeTrack',
+  const router = useRouter();
+  const [device, setDevice] = useState({
+    name: 'Pulsera de Sofia',
+    childName: 'Sofia',
     type: 'Pulsera',
     battery: 85,
     status: 'Conectado',
     lastSync: 'Hace 5 min',
-  };
+  });
+  const [isEditing, setIsEditing] = useState(false);
+  const [tempName, setTempName] = useState(device.name);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Dispositivos Conectados</Text>
+      <View style={styles.headerRow}>
+        <Text style={styles.title}>Dispositivos Conectados</Text>
+      </View>
+      
+      <View style={styles.actionsRow}>
+        <TouchableOpacity style={styles.primaryBtn}>
+          <Text style={styles.primaryBtnText}>Agregar dispositivo</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.secondaryBtn} onPress={() => setIsEditing((v) => !v)}>
+          <Text style={styles.secondaryBtnText}>{isEditing ? 'Cancelar' : 'Modificar'}</Text>
+        </TouchableOpacity>
+      </View>
       
       <View style={styles.deviceCard}>
         <View style={styles.deviceHeader}>
           <Ionicons name="watch" size={32} color="#3b82f6" />
           <View style={styles.deviceInfo}>
-            <Text style={styles.deviceName}>{connectedDevice.name}</Text>
-            <Text style={styles.deviceType}>{connectedDevice.type}</Text>
+            {!isEditing ? (
+              <Text style={styles.deviceName}>{device.name}</Text>
+            ) : (
+              <View style={styles.editRow}>
+                <TextInput
+                  style={styles.input}
+                  value={tempName}
+                  onChangeText={setTempName}
+                />
+                <TouchableOpacity
+                  style={styles.saveBtn}
+                  onPress={() => {
+                    setDevice((d) => ({ ...d, name: tempName.trim() || d.name }));
+                    setIsEditing(false);
+                  }}
+                >
+                  <Text style={styles.saveBtnText}>Guardar</Text>
+                </TouchableOpacity>
+              </View>
+            )}
+            <Text style={styles.deviceType}>{device.type}</Text>
+            <Text style={styles.deviceMeta}>Nombre del niño: {device.childName}</Text>
           </View>
-          <View style={[styles.statusBadge, connectedDevice.status === 'Conectado' && styles.connectedBadge]}>
-            <Text style={styles.statusText}>{connectedDevice.status}</Text>
+          <View style={[styles.statusBadge, device.status === 'Conectado' && styles.connectedBadge]}>
+            <Text style={styles.statusText}>{device.status}</Text>
           </View>
         </View>
         
         <View style={styles.deviceDetails}>
           <View style={styles.detailItem}>
             <Ionicons name="battery-charging" size={20} color="#10b981" />
-            <Text style={styles.detailText}>{connectedDevice.battery}%</Text>
+            <Text style={styles.detailText}>{device.battery}%</Text>
           </View>
           <View style={styles.detailItem}>
             <Ionicons name="time-outline" size={20} color="#6b7280" />
-            <Text style={styles.detailText}>{connectedDevice.lastSync}</Text>
+            <Text style={styles.detailText}>{device.lastSync}</Text>
           </View>
         </View>
       </View>
@@ -51,12 +88,61 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f8f9fa',
     padding: 20,
+    alignItems: 'stretch',
+  },
+  headerRow: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#1f2937',
-    marginBottom: 20,
+    marginBottom: 0,
+  },
+  homeButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: '#eef2ff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#dbeafe',
+  },
+  homeButtonText: {
+    color: '#3b82f6',
+    fontWeight: '600',
+  },
+  actionsRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 12,
+  },
+  primaryBtn: {
+    backgroundColor: '#3b82f6',
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+  },
+  primaryBtnText: {
+    color: '#fff',
+    fontWeight: '700',
+  },
+  secondaryBtn: {
+    backgroundColor: '#e5e7eb',
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+  },
+  secondaryBtnText: {
+    color: '#111827',
+    fontWeight: '700',
   },
   deviceCard: {
     backgroundColor: 'white',
@@ -83,9 +169,38 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#111827',
   },
+  editRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  input: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#e5e7eb',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    backgroundColor: '#fff',
+  },
+  saveBtn: {
+    backgroundColor: '#10b981',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+  },
+  saveBtnText: {
+    color: '#fff',
+    fontWeight: '700',
+  },
   deviceType: {
     fontSize: 14,
     color: '#6b7280',
+  },
+  deviceMeta: {
+    fontSize: 13,
+    color: '#6b7280',
+    marginTop: 2,
   },
   statusBadge: {
     paddingHorizontal: 10,

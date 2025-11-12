@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Text, StyleSheet, Platform, TouchableOpacity } from 'react-native';
 import { WebView } from 'react-native-webview';
+import { useRouter } from 'expo-router';
 
-export default function ClientsScreen() {
+export default function UbicacionScreen() {
+  const router = useRouter();
   // Coordenadas de ejemplo (puedes cambiarlas por las coordenadas reales del dispositivo)
   const [deviceLocation] = useState({
-    latitude: 19.4326,  // Ciudad de México (ejemplo)
-    longitude: -99.1332,
+    latitude: 28.66171205870747,
+    longitude: -106.04015311800136,
     zoom: 15,
   });
 
@@ -60,7 +62,9 @@ export default function ClientsScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Ubicación en Tiempo Real</Text>
+      <View style={styles.headerRow}>
+        <Text style={styles.title}>Ubicación en Tiempo Real</Text>
+      </View>
       <View style={styles.mapContainer}>
         <WebView
           originWhitelist={['*']}
@@ -81,16 +85,40 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
-    alignItems: 'center',
+    alignItems: 'stretch',
     padding: 20,
   },
+  headerRow: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    marginHorizontal: -20,
+    marginTop: -20,
+    marginBottom: 20,
+  },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#333',
-    marginTop: 40,
-    marginBottom: 20,
-    textAlign: 'center',
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  homeButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: '#eef2ff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#dbeafe',
+  },
+  homeButtonText: {
+    color: '#3b82f6',
+    fontWeight: '600',
   },
   mapContainer: {
     width: '100%',

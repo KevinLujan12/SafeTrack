@@ -112,11 +112,26 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   headerTitle: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#1f2937',
+  },
+  homeButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: '#eef2ff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#dbeafe',
+  },
+  homeButtonText: {
+    color: '#3b82f6',
+    fontWeight: '600',
   },
   scrollView: {
     flex: 1,

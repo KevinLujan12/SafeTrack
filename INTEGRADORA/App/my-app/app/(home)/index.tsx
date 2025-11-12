@@ -16,7 +16,7 @@ export default function HomeScreen() {
     distanciaKm: 5.2,
     alertas: 1,
     zonasSeguras: 3,
-    ultimaUbicacion: 'Parque Central',
+    ultimaUbicacion: 'UTCH BIS',
     ultimaActividad: 'Entrada a la escuela',
     horaUltimaActividad: '07:42 AM',
   };
@@ -57,36 +57,20 @@ export default function HomeScreen() {
         <Text style={styles.statusTitle}>Estado de hoy</Text>
         <Text style={styles.statusSubtitle}>Última actividad: {stats.ultimaActividad} • {stats.horaUltimaActividad}</Text>
         <View style={styles.quickButtons}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('/(home)/ubicacion')}>
             <LinearGradient colors={['#3b82f6', '#8b5cf6']} style={styles.primaryButton}>
               <Text style={styles.primaryButtonText}>Ver mapa</Text>
             </LinearGradient>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.secondaryLink}>Historial</Text>
+          <TouchableOpacity onPress={() => router.push('/(home)/connect')}>
+            <LinearGradient colors={['#10b981', '#22c55e']} style={styles.primaryButton}>
+              <Text style={styles.primaryButtonText}>Agregar dispositivo</Text>
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </View>
 
-      {/* Estadísticas rápidas */}
-      <View style={styles.statsGrid}>
-        <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Pasos (hoy)</Text>
-          <Text style={styles.statValue}>{stats.pasosHoy.toLocaleString()}</Text>
-        </View>
-        <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Distancia (km)</Text>
-          <Text style={styles.statValue}>{stats.distanciaKm.toFixed(1)}</Text>
-        </View>
-        <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Alertas</Text>
-          <Text style={[styles.statValue, stats.alertas > 0 && styles.alertValue]}>{stats.alertas}</Text>
-        </View>
-        <View style={styles.statCard}>
-          <Text style={styles.statLabel}>Zonas seguras</Text>
-          <Text style={styles.statValue}>{stats.zonasSeguras}</Text>
-        </View>
-      </View>
+      {/* Estadísticas rápidas (removidas) */}
 
       {/* Sección de actividad reciente */}
       <View style={styles.section}>
@@ -236,7 +220,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 8,
     padding: 20,
-    width: '48%',
+    width: '100%',
     marginBottom: 15,
     alignItems: 'center',
     borderWidth: 1,

@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
+import { useRouter } from 'expo-router';
 
 export default function ParentDashboard() {
+  const router = useRouter();
   const [childInfo] = useState({
-    name: 'Juan Pérez',
+    name: 'Sofia',
     group: 'Grupo A',
     schedule: '8:00 AM - 2:00 PM',
     location: 'En la escuela'
@@ -13,24 +15,16 @@ export default function ParentDashboard() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Dashboard de Padre</Text>
-        <Text style={styles.headerSubtitle}>Monitoreo en tiempo real</Text>
-      </View>
-
-      {/* Mapa en tiempo real */}
-      <View style={styles.mapContainer}>
-        <View style={styles.mapPlaceholder}>
-          <Text style={styles.mapPlaceholderText}>📍</Text>
-          <Text style={styles.mapText}>Mapa en tiempo real</Text>
-          <Text style={styles.mapSubtext}>Ubicación del niño</Text>
-          <View style={styles.locationBadge}>
-            <Text style={styles.locationText}>{childInfo.location}</Text>
-          </View>
+        <View>
+          <Text style={styles.headerTitle}>Dashboard de Padre</Text>
+          <Text style={styles.headerSubtitle}>Monitoreo en tiempo real</Text>
         </View>
       </View>
 
+      {/* Mapa en tiempo real */}
+
       {/* Botón Ver Alertas */}
-      <TouchableOpacity style={styles.alertButtonContainer}>
+      <TouchableOpacity style={styles.alertButtonContainer} onPress={() => router.push('/(home)/alerts')}>
         <LinearGradient
           colors={['#3b82f6', '#8b5cf6']}
           style={styles.alertButton}
@@ -46,20 +40,6 @@ export default function ParentDashboard() {
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Nombre:</Text>
           <Text style={styles.infoValue}>{childInfo.name}</Text>
-        </View>
-
-        <View style={styles.divider} />
-
-        <View style={styles.infoRow}>
-          <Text style={styles.infoLabel}>Grupo:</Text>
-          <Text style={styles.infoValue}>{childInfo.group}</Text>
-        </View>
-
-        <View style={styles.divider} />
-
-        <View style={styles.infoRow}>
-          <Text style={styles.infoLabel}>Horario:</Text>
-          <Text style={styles.infoValue}>{childInfo.schedule}</Text>
         </View>
 
         <View style={styles.divider} />
@@ -111,6 +91,9 @@ const styles = StyleSheet.create({
     padding: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   headerTitle: {
     fontSize: 28,
